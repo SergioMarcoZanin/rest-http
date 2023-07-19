@@ -1,12 +1,30 @@
-<form [formGroup]="homeform">
+
+
+<form [formGroup]="homeform" (ngSubmit)="onSubmit()">
     <div class="example-container">
         <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Name" formControlName="nome">
+            <input matInput placeholder="Name" formControlName="name">
           </mat-form-field>
         <mat-form-field>
           <mat-label>Enter your email</mat-label>
           <input matInput placeholder="pat@example.com" formControlName="email">
         </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select me</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Select me</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="active">Active</mat-option>
+              <mat-option value="inactive">Inactive</mat-option>
+            </mat-select>
+          </mat-form-field>
       </div>
+      <button mat-raised-button color="primary" type = "submit"  >Add</button>
 </form>
+

@@ -10,11 +10,19 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {NgIf} from '@angular/common';
 import { HttpClientModule} from '@angular/common/http'
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import { ContattiComponent } from './contatti/contatti.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ContattiComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +32,12 @@ import { HttpClientModule} from '@angular/common/http'
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatDialogModule,
     NgIf,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule
 
   ],
   providers: [],
