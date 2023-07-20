@@ -1,38 +1,35 @@
 
-<h1>CONTATTI</h1>
+<h1 class="text-primary">CONTATTI</h1>
 
-<div *ngFor="let user of users" >
-    <mat-card>
-        <mat-card-header>
-        <mat-card-title>{{user.id}}</mat-card-title>
-          <mat-card-title>{{user.name}}</mat-card-title>
-          <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-          <mat-card-subtitle>{{user.gender}}</mat-card-subtitle>
-          <mat-card-subtitle>{{user.status}}</mat-card-subtitle>
-          <button mat-raised-button color="primary"  (click)="deleteUser(user.id)">Delete</button>
-          <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" (click)="openpopup(user.id)">
-            Modifica
-          </button>
-          </mat-card-header>
-      </mat-card>
-</div>
+  <div class="container">
+      <div *ngFor="let user of users" class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{user.id}}</h4>
+          <h4 class="card-title">{{user.name}}</h4>
+          <h4 class="card-title">{{user.email}}</h4>
+          <h4 class="card-title">{{user.gender}}</h4>
+          <h4 class="card-title">{{user.status}}</h4>
+          <button type="button" class="btn btn-primary" (click)="deleteUser(user.id)">DELETE</button>
+          <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" (click)="openpopup(user.id)">CHANGE</button>
+        </div>
+      </div>
+  </div>
+
+
 <!-- Button trigger modal -->
 
   <!-- Modal -->
-<form [formGroup]="homeform" (ngSubmit)="onSubmit(homeform.value.id)">
+<form [formGroup]="homeform" (ngSubmit)="onSubmit()">
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Change User</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            
-
-
     <div class="example-container">
-        <mat-form-field>
+        <mat-form-field >
             <mat-label>Name</mat-label>
             <input matInput placeholder="Name" formControlName="name">
           </mat-form-field>
@@ -58,7 +55,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary" data-mdb-dismiss="modal">Save changes</button>
         </div>
       </div>
     </div>

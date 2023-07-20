@@ -24,8 +24,9 @@ user: User = {
   "status": ""
 }
 homeform!: FormGroup;
-
+currentid: number = 0
 showdialog: boolean = false
+
 
 constructor(private gorest: GorestService, public dialog: MatDialog ){}
 
@@ -43,7 +44,8 @@ getUsers(){
     this.users = data
     console.log(data)
 
-      })
+      }, (error) => {console.log(error)})
+      
 }
 
 getbyid(id:number){
@@ -60,26 +62,25 @@ deleteUser(id:number){
   this.users = data
   console.log(data)
   this.getUsers()
-    })
+    }, (error) => {console.log(error)})
 }
-//  updateUser (id:number){
-//         this.gorest.put(id , data:any).subscribe(data => {
-//         this.users = data
-//         console.log(data)
-//           })
-// }
-onSubmit(id:number){
-  console.log(this.homeform)
+
+onSubmit(){
+  console.log(this.currentid)
 
   this.gorest.put(
-    id,{name: this.homeform.value.name, email:this.homeform.value.email, gender:this.homeform.value.gender, status: this.homeform.value.status}
+    this.currentid,{name: this.homeform.value.name, email:this.homeform.value.email, gender:this.homeform.value.gender, status: this.homeform.value.status}
    ).subscribe(data => {
         console.log(data)
-      })
+      }, (error) => {console.log(error)})
 }
 openpopup(id:number){
   this.getbyid(id)
+  this.currentid = id
+  console.log(id)
 }
+
+
 }
 
 
